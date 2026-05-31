@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_udise_schools__bihar
+    description: "Cleaned Bihar UDISE schools, one row per school."
+    columns:
+      - name: school_id
+        description: "UDISE school code (schcd). Unique within the state."
+        tests: [not_null]
+  - name: stg_udise_schools__maharashtra
+    description: "Cleaned Maharashtra UDISE schools, one row per school."
+    columns:
+      - name: school_id
+        description: "UDISE school code (schcd). Unique within the state."
+        tests: [not_null]

@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: mart_coverage_by_district
+    description: "School coverage and rural/urban split per district."
+    columns:
+      - name: district
+        tests: [not_null]
+      - name: state
+        tests: [not_null]
+      - name: total_schools
+        tests: [not_null]
+
+  - name: mart_management_mix
+    description: "Government vs private vs madarsa ownership mix per district."
+    columns:
+      - name: district
+        tests: [not_null]
+      - name: pct_government
+        tests: [not_null]
+
+  - name: mart_education_level_gaps
+    description: "Secondary-and-above schools per 100 primary schools, per district."
+    columns:
+      - name: district
+        tests: [not_null]
+
+  - name: mart_gender_access
+    description: "Co-ed / girls-only / boys-only school counts per district."
+    columns:
+      - name: district
+        tests: [not_null]
+
+  - name: mart_school_locations
+    description: "Per-school clean geo points for the map layer."
+    columns:
+      - name: school_id
+        description: "UDISE school code. Unique across both states."
+        tests: [not_null, unique]
+      - name: location_type
+        tests:
+          - accepted_values:
+              values: ['Rural', 'Urban']
+      - name: management_group
+        tests:
+          - accepted_values:
+              values: ['Government', 'Private', 'Madarsa', 'Other']

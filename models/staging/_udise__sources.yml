@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: udise
+    description: >
+      Raw UDISE+ school directory extracts (one row per school) landed in the
+      warehouse staging schema via the Google Sheet ingestion. Education data
+      for the demo workspace.
+    schema: staging
+    tables:
+      - name: udise_schools_bihar
+        description: "Raw UDISE school directory for Bihar (~85.6k schools)."
+      - name: udise_schools_maharashtra
+        description: "Raw UDISE school directory for Maharashtra (~110k schools)."
